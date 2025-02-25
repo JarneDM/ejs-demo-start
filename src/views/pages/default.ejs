@@ -26,7 +26,8 @@
         <ul>
             <% team.forEach(dino=> { %>
                 <li>
-                    <%= dino %>
+                    <%- dino %>
+                        <% // "-" is zodat de strong tags niet op de website tevoorschijn komen%>
                 </li>
                 <% }); %>
         </ul>
