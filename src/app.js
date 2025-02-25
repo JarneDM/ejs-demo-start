@@ -1,21 +1,31 @@
-// import statements
+// Import statements
 import express from "express";
 import path from "path";
+import dotenv from "dotenv";
 
-// create an instance of express
+// Laad .env-bestand
+dotenv.config();
+
+// Maak een express-app
 const app = express();
+app.set("view engine", "ejs");
+app.set("views", path.resolve("src", "views"));
 
-// serve static files from the public folder
-// they can be accessed from the root of the site (e.g. /assets/images/dino_07.png) 🦕
+// Serveer statische bestanden uit de "public" map
 app.use(express.static("public"));
 
-// GET route to serve the index.html file
+// GET route voor de home.ejs file
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("src", "views", "index.html"));
+  res.render("home", {
+    title: "Dinosaurs are awesome",
+    content: "hahahhahah",
+  });
 });
 
-// start the server, listen on port defined in .env file
-app.listen(process.env.PORT, () => {
-  // callback function that is called when the server starts
-  console.log(`Application is listening to port ${process.env.PORT}.`);
+// Poort ophalen uit .env of standaard 3000 gebruiken
+const PORT = process.env.PORT || 3000;
+
+// Start de server
+app.listen(PORT, () => {
+  console.log(`Application is listening on port ${PORT}.`);
 });

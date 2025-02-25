@@ -5,7 +5,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon --env-file=.env ./src/app.js --config nodemon.json "
+    "start:dev": "nodemon -r dotenv/config ./src/app.js"
   },
   "keywords": [
     "ejs",
@@ -16,6 +16,8 @@
   "author": "Frederick Roegiers",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^4.21.2"
   },
   "devDependencies": {
