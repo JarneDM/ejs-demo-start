@@ -9,6 +9,7 @@ export const about = (req, res) => {
   res.render("pages/default", {
     title: "about us",
     content: "We love dinos",
+    team: ["T-rex", "Velo", "Stego"],
   });
 };
 
