@@ -22,6 +22,13 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/about", (req, res) => {
+  res.render("home", {
+    title: "About",
+    content: "page about dinosaurs",
+  });
+});
+
 // Poort ophalen uit .env of standaard 3000 gebruiken
 const PORT = process.env.PORT || 3000;
 
