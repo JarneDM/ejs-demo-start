@@ -3,6 +3,8 @@ import express from "express";
 import path from "path";
 import dotenv from "dotenv";
 
+import { home, about, contact, privacy } from "./controllers/pageControllers.js";
+
 // Laad .env-bestand
 dotenv.config();
 
@@ -14,20 +16,11 @@ app.set("views", path.resolve("src", "views"));
 // Serveer statische bestanden uit de "public" map
 app.use(express.static("public"));
 
-// GET route voor de home.ejs file
-app.get("/", (req, res) => {
-  res.render("home", {
-    title: "Dinosaurs are awesome",
-    content: "hahahhahah",
-  });
-});
-
-app.get("/about", (req, res) => {
-  res.render("home", {
-    title: "About",
-    content: "page about dinosaurs",
-  });
-});
+// page routes
+app.get("/", home);
+app.get("/about", about);
+app.get("/contact", contact);
+app.get("/privacy", privacy);
 
 // Poort ophalen uit .env of standaard 3000 gebruiken
 const PORT = process.env.PORT || 3000;
