@@ -5,7 +5,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon src/app.js"
+    "start:dev": "nodemon --env-file=.env ./src/app.js --config nodemon.json "
   },
   "keywords": [
     "ejs",
